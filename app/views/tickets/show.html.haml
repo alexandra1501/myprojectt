@@ -1,0 +1,17 @@
+%h2 Show request #{@ticket.name}
+
+%ul#request
+  %li
+    E-mail:
+    =@ticket.email
+  %li
+    Department:
+    =@ticket.department
+  %li
+    Subject:
+    =@ticket.subject
+
+%h3 Question:
+%p#question= @ticket.body
+
+= link_to 'Back', tickets_path

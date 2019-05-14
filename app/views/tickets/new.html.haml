@@ -1,0 +1,8 @@
+%h2 New Ticket
+
+= form_tag tickets_path, :method => :post do
+
+  = render 'ticket_form'
+
+  = submit_tag 'Send Request'
+  = link_to 'Back', tickets_path

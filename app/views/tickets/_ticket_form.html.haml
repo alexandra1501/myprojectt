@@ -1,0 +1,14 @@
+= label :ticket, :name, 'Name'
+= text_field :ticket, :name
+
+= label :ticket, :email, 'E-mail'
+= text_field :ticket, :email
+
+= label :ticket, :subject , 'Subject'
+= text_field :ticket, :subject
+
+= label :ticket, :department, 'Department'
+= select :ticket, :department, ['Production', 'Research & Development', 'Purchasing', 'Marketing', 'Finance', 'Management']
+
+= label :ticket, :body, 'Question'
+= text_field :ticket, :body
