@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :tickets do
-    resources :departments
+  resources :tickets
+  resources :departments
 
   root 'tickets#index'
-  end
 end

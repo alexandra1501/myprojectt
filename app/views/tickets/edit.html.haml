@@ -1,0 +1,8 @@
+%h2 Edit Request
+
+  =form_tag tickets_path(@ticket), :method => :put do
+
+  = render 'ticket_form'
+
+  = submit_tag 'Save Changes'
+  = link_to 'Back' , tickets_path

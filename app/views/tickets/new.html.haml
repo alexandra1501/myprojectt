@@ -1,8 +1,21 @@
 %h2 New Ticket
 
-= form_tag tickets_path, :method => :post do
+= form_for :ticket, url: tickets_path, method: :post do |f|
 
-  = render 'ticket_form'
+  = label :ticket, :name, 'Name'
+  = text_field :ticket, :name
+
+  = label :ticket, :email, 'E-mail'
+  = text_field :ticket, :email
+
+  = label :ticket, :subject , 'Subject'
+  = text_field :ticket, :subject
+
+  = label :ticket, :department, 'Department'
+  = f.select :department, options_for_select(Department.all.map{|a| [a.department_name, a.id]})
+
+  = label :ticket, :body, 'Question'
+  = text_field :ticket, :body
 
   = submit_tag 'Send Request'
   = link_to 'Back', tickets_path

@@ -8,7 +8,7 @@
 = text_field :ticket, :subject
 
 = label :ticket, :department, 'Department'
-= select :ticket, :department, ['Production', 'Research & Development', 'Purchasing', 'Marketing', 'Finance', 'Management']
+= f.select :department, :department_id, options_for_select(Department.all.map{|a| [a.department_name, a.id]})
 
 = label :ticket, :body, 'Question'
 = text_field :ticket, :body

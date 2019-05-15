@@ -1,16 +1,15 @@
 %h2 All Requests
 
 %table#tickets
-  %tr
-    %th Name
-    %th Subject
-  %tbody
-
-  -@tickets.each do |ticket|
+  %thead
     %tr
-      %td = ticket.name
-      %td = ticket.subject
-      %td = link_to 'Show', ticket_path(ticket)
-      %td = link_to 'Edit',edit_ticket_ath(ticket)
-      %td = link_to 'Destroy', ticket_path(ticket), method: :delete, data:{confirm:'Are you sure?'}
+      %th Name
+      %th Subject
+  %tbody
+    -@tickets.each do |ticket|
+      %tr
+        %td = ticket.name
+        %td = ticket.subject
+        %td = link_to 'Show', ticket_path(ticket)
+        %td = link_to 'Destroy', ticket_path(ticket), method: :delete, data:{confirm:'Are you sure?'}
 = link_to 'Add new request', new_ticket_path
