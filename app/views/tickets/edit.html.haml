@@ -1,6 +1,6 @@
 %h2 Edit Request
 
-  =form_tag tickets_path(@ticket), :method => :put do
+= form_for :ticket, url: tickets_path(@ticket), :method => :put do
 
   = render 'ticket_form'
 
