@@ -1,5 +1,7 @@
 class TicketsController < ApplicationController
 
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @tickets = Ticket.all
   end
@@ -16,7 +18,6 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
   end
 
   def new
@@ -24,12 +25,10 @@ class TicketsController < ApplicationController
   end
 
   def edit
-    @ticket = Ticket(params[:id])
   end
 
   def update
-    @ticket = Ticket.find(params[:id])
-
+    flash[:notice] = "#{@ticket.name} had successfully updated request!"
     if @ticket.update(ticket_params)
       redirect_to @ticket
     else
@@ -38,14 +37,17 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    @ticket = Ticket.find(params[:id])
     @ticket.destroy
   end
 
   private
 
   def ticket_params
-    params.require(:ticket).permit(:name, :email, :subject, :body, department: [:department_id])
+    params.require(:ticket).permit(:name, :email, :subject, :body, :department_id)
+  end
+
+  def find_user
+    @ticket = Ticket.find(params[:id])
   end
 
 end

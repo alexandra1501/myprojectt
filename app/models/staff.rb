@@ -6,4 +6,6 @@ class Staff < ApplicationRecord
 
   validates :login, :password, presence: true
 
+  attr_accessor :login
+
 end
